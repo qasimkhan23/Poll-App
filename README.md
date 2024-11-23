@@ -32,6 +32,7 @@ A multi-step poll application built with React, Redux, and Tailwind CSS. Users c
 3. **Running All the Test Cases**
 
 To run all tests in the project, use the following command:
+
     ```bash
         npm test
 To run components unit tests you can use the following command:
