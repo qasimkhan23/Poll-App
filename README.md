@@ -21,8 +21,8 @@ A multi-step poll application built with React, Redux, and Tailwind CSS. Users c
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/yourusername/poll-app.git
-   cd poll-app
+   git clone https://github.com/qasimkhan23/Poll-App.git
+   cd Poll-App
 2. **Install Depencencies**
 
      ```bash
@@ -33,9 +33,7 @@ A multi-step poll application built with React, Redux, and Tailwind CSS. Users c
 
 To run all tests in the project, use the following command:
 
-    ```bash
-        npm test
+    npm test
 To run components unit tests you can use the following command:
 
-    ```bash
     npm run test:components
