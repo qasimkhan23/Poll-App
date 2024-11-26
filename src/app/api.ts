@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const submitPollData = async (data) => {
+export const submitPollData = async (data: { question: string; answer: string | null }[]) => {
   try {
     const response = await axios.post("https://jsonplaceholder.typicode.com/posts", data);
     return response.data;

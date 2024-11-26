@@ -1,6 +1,20 @@
-import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
+interface Step {
+  id: number;
+  question: string;
+  options: string[];
+  selectedOption: string | null;
+}
+
+interface PollState {
+  steps: Step[];
+  currentStep: number;
+  answers: { question: string; answer: string | null }[];
+}
+
+const initialState: PollState = {
   steps: [
     { id: 1, question: "How was your week overall?", options: ["👍", "🤔", "👎"], selectedOption: null },
     { id: 2, question: "How are you feeling today?", options: ["😀", "😐", "☹️"], selectedOption: null },
@@ -14,7 +28,10 @@ const pollSlice = createSlice({
   name: "poll",
   initialState,
   reducers: {
-    selectOption(state, action) {
+    selectOption(
+      state,
+      action: PayloadAction<{ stepId: number; option: string }>
+    ) {
       const { stepId, option } = action.payload;
       const step = state.steps.find((s) => s.id === stepId);
       if (step) step.selectedOption = option;
@@ -23,7 +40,10 @@ const pollSlice = createSlice({
       if (state.currentStep <= state.steps.length - 1) state.currentStep++;
     },
     submitAnswers(state) {
-      state.answers = state.steps.map((step) => ({ question: step.question, answer: step.selectedOption }));
+      state.answers = state.steps.map((step) => ({
+        question: step.question,
+        answer: step.selectedOption,
+      }));
     },
   },
 });

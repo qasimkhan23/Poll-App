@@ -1,6 +1,11 @@
 import React from "react";
 
-export default function Carousel({ children, currentSlide }) {
+interface CarouselProps {
+  children: React.ReactNode;
+  currentSlide: number;
+}
+
+const Carousel: React.FC<CarouselProps> = ({ children, currentSlide }) => {
   return (
     <div className="overflow-hidden relative w-full h-full">
       <div
@@ -11,4 +16,6 @@ export default function Carousel({ children, currentSlide }) {
       </div>
     </div>
   );
-}
+};
+
+export default Carousel;

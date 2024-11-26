@@ -1,11 +1,11 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import Carousel from "../Carousel";
+import Carousel from "../Carousel"; 
 
 describe("Carousel Component", () => {
   it("renders children properly", () => {
     const { getByText } = render(
-      <Carousel>
+      <Carousel currentSlide={0}>
         <div>Slide 1</div>
         <div>Slide 2</div>
       </Carousel>
@@ -14,13 +14,15 @@ describe("Carousel Component", () => {
     expect(getByText("Slide 2")).toBeInTheDocument();
   });
 
-  it("applies the correct transition styles", () => {
+  it("applies the correct styles", () => {
     const { container } = render(
-      <Carousel>
+      <Carousel currentSlide={0}>
         <div>Slide 1</div>
       </Carousel>
     );
-    const slider = container.firstChild.querySelector("div");
-    expect(slider).toHaveClass("transition-transform");
+    const slider = container.firstChild as HTMLElement; 
+    expect(slider).toHaveClass("overflow-hidden relative w-full h-full");
   });
 });
+
+

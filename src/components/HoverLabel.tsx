@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function HoverLabel({ icon, label, onClick }) {
+export default function HoverLabel({ icon, label, onClick }:any) {
   return (
     <div className="relative group">
       <button
